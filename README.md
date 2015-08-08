@@ -11,17 +11,17 @@ None!!! Yeaaaah!
 Usage
 -----
 
-For the moment it only works for `POSTs`, `GETs` and `PUTs` with `JSON` responses.
+At the moment it only works for `POSTs`, `GETs` and `PUTs`. If the the response is a JSON the gem will parse it, if not it will show as it cames
 
 GET
 ----
 
-`PaperCup.get(url)`
+`PaperCup.get(url: url)`
 
 POST - PUT
 ----------
 
-`PaperCup.post(url, some_hash.to_json)`
+`PaperCup.post(url: url, body: {name: 'pepe'}, headers: { "Content-Type" => "application/json"})`
 
 
 Response

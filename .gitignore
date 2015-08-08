@@ -10,3 +10,4 @@ Gemfile.lock
 tmp
 pkg
 *.swp
+.ruby-version
