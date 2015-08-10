@@ -6,12 +6,10 @@ module PaperCup
 
     attr_accessor :method, :url, :headers, :params, :body
 
+    COMMAND_TEMPLATE = "curl -X %{method} -w %%{http_code} %{headers} %{params} %{body} %{url}"
+
     def initialize(method:, url:, headers: {}, params: {}, body: "")
-      @url = url
-      @method = method
-      @headers = headers
-      @params = params
-      @body = body
+      @url, @method, @headers, @params, @body = url, method, headers, params, body
     end
 
     def exec
@@ -19,11 +17,13 @@ module PaperCup
     end
 
     def command
-      @command ||= ["curl", build_method, http_code, build_headers, build_params, build_body, url].join(" ")
-    end
-
-    def http_code
-      "-w %{http_code}"
+      COMMAND_TEMPLATE % {
+        method:  build_method,
+        headers: build_headers,
+        params:  build_params,
+        body:    build_body,
+        url:     url
+      }
     end
 
     def build_method
@@ -35,7 +35,11 @@ module PaperCup
     end
 
     def build_params
-      @headers["Content-Type"] && @headers["Content-Type"].include?("json") ? "-d '#{params.to_json}'" : "-d '#{params}'"
+      json_request? ? "-d '#{params.to_json}'" : "-d '#{params}'"
+    end
+
+    def json_request?
+      @headers["Content-Type"] && @headers["Content-Type"].include?("json")
     end
 
     def build_body

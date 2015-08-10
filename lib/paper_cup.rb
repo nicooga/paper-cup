@@ -6,8 +6,8 @@ module PaperCup
   METHODS = INSERT_METHODS + QUERY_METHODS
 
   METHODS.each do |method|
-    define_singleton_method(method) do |url, body: '', headers: {}, params: {}|
-      Request.new(method: method, url: url, body: body, headers: headers, params: params).exec
+    define_singleton_method(method) do |url, opts|
+      Request.new(opts.merge(url: url)).exec
     end
   end
 end
