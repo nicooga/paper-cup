@@ -11,7 +11,11 @@ module Mock
     end
 
     def json
-      "[{\"name\":\"Mariano\",\"code\":\"ruby\"}]200"
+      "[{\"framework\":\"Rails\",\"language\":\"ruby\"}]200"
+    end
+
+    def params
+      { framework: 'cuba', language: 'ruby' }
     end
   end
 end

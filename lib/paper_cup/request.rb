@@ -18,16 +18,12 @@ module PaperCup
 
     def command
       COMMAND_TEMPLATE % {
-        method:  build_method,
+        method:  method.upcase,
         headers: build_headers,
         params:  build_params,
         body:    build_body,
         url:     url
       }
-    end
-
-    def build_method
-      "-X #{method.upcase}"
     end
 
     def build_headers
