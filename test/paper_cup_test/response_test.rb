@@ -17,7 +17,7 @@ describe PaperCup::Response do
   describe "when the response is a JSON" do
     it "must set the response properly" do
       r = PaperCup::Response.new(Mock.json)
-      assert_equal JSON.parse(Mock.json[0..-4]), r.response
+      assert_equal JSON.parse(Mock.json[0..-4]), r.body
     end
 
     it "must set the status code response properly" do

@@ -15,7 +15,7 @@ None!!! Yeaaaah!
 Usage
 -----
 
-At the moment it only works for `POSTs`, `HEAD`s, `GETs` and `PUTs`. If the the response is a JSON the gem will parse it, if not it will show as it cames
+At the moment it only works for `POSTs`, `HEAD`s, `GETs` and `PUTs`. If the response is a JSON the gem will parse it, if not it will show as it cames
 
 PaperCup only has these 4 methods: `#get`, `#head`, `#post` and `#put`.
 
@@ -26,7 +26,7 @@ For all the methods it accepts the next parameters:
   * params: optional, same as the header. Example: { name: "Goku", race: "Saiyan" }
   * body: optional, the body will be inserted with the [`-d`](http://curl.haxx.se/docs/manpage.html#-d) option of curl as it come.
 
-All the method returns a [`Response`](https://github.com/casapick/paper-cup/blob/master/lib/paper_cup/response.rb) object, that has two attributes status and response. The status is the status code of the respond and the response is the response itself.
+All the method returns a [`Response`](https://github.com/casapick/paper-cup/blob/master/lib/paper_cup/response.rb) object, that has two attributes status and body. The status is the status code of the respond and the body is the response.
 
 GET
 ----
@@ -47,6 +47,6 @@ Example:
 
 ```ruby
   r = PaperCup.post(url, body: some_hash.to_json, headers: { "Content-Type" => "application/json"})
-  puts r.response # It will print the response returned by the endpoint
+  puts r.body # It will print the response returned by the endpoint
   puts r.status # It will print the status code returned by the endpoint
 ```
