@@ -1,24 +1,12 @@
 language: ruby
-install: bundle install --without development --without production --without staging --deployment
-cache:
-  cache: bundler
-  directories:
-    - vendor/bundle
+install: bundle install
 rvm:
-  - 2.2.3
+  - 2.2.1
 script:
   - RUBYOPT=-W0 bundle exec rake test
-addons:
-  postgresql: '9.3'
-services:
-  - postgresql
-env:
-  - API_KEY=9df6ff8c-2797-4a6c-b243-0caa55d2e43b URL=localhost:3000 ERP_API_URL=http://erp.casapick.com ERP_API_TOKEN=Basic ZjBjYTlhMDc1MTRmNjczMmIyYTgwMGNmYWRmNmNlMzhkZDI0NjRhODBkOGIxZmQyZDRiYTQ2ZjI2M2QwMmJkNzplOWIzMDdiM2QyNzJjZjYyNzhmMjZmYjRkMDFlMGE3Y2VkMWI5ZDcyOGUyMjdlMjA1YTNkN2ViMDQ3NDg4NDg1
 git:
   depth: 10
 notifications:
-  slack: casapick:G6ubSOoJGwUlPHrT95bRSQYv
   email: false
-branches:
-  except:
-    - staging
+before_install:
+  - gem install bundler -v '= 1.10.6'
