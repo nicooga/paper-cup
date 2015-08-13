@@ -1,4 +1,4 @@
-require "./lib/paper_cup/request.rb"
+require "paper_cup/request"
 module PaperCup
 
   INSERT_METHODS = %w(post put)

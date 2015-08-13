@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'paper-cup'
-  s.version     = '0.1.0'
+  s.version     = '0.1.1'
   s.date        = '2015-08-05'
   s.summary     = "Use of Open3 to make request"
   s.description = "Use curl with Open3 for making request"
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.require_paths = ["lib"]
 
-  s.add_development_dependency "minitest", '~> 0'
-  s.add_development_dependency "minitest-happy", '~> 0'
-  s.add_development_dependency "pry-byebug", '~> 0'
+  s.add_development_dependency "minitest", '~> 5.8.0'
+  s.add_development_dependency "minitest-happy", '~> 1.0.0'
+  s.add_development_dependency "pry", '~> 0.10.1'
 end
