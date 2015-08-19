@@ -1,6 +1,6 @@
 # PaperCup
 
-![TravisCI Badge](https://magnum.travis-ci.com/casapick/paper-cup.svg?token=MzqzdCmqpmmxRGFLmFqv&branch=master)
+![TravisCI Badge](https://travis-ci.org/casapick/paper-cup.svg)
 
 Instalation
 ----
