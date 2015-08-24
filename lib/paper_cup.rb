@@ -1,6 +1,6 @@
 require "paper_cup/request"
-module PaperCup
 
+module PaperCup
   INSERT_METHODS = %w(post put)
   QUERY_METHODS = %w(get head)
   METHODS = INSERT_METHODS + QUERY_METHODS
@@ -11,3 +11,5 @@ module PaperCup
     end
   end
 end
+
+require "paper_cup/client"

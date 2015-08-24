@@ -1,4 +1,4 @@
-require 'json'
+  require 'json'
 require_relative 'utils'
 
 module PaperCup
