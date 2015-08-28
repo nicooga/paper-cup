@@ -29,6 +29,7 @@ describe PaperCup::Client do
       headers:  { 'X-Test-Header-2': :popote, 'X-Test-Header-3': :papota }
     )
 
+    assert_equal users.base_url 'http://api.github.com/users'
     assert_equal users.params, test_param_1: :pepito, test_param_2: :popote, test_param_3: :papota
     assert_equal users.headers, 'X-Test-Header-1': :pepote, 'X-Test-Header-2': :popote, 'X-Test-Header-3': :papota
   end
