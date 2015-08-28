@@ -10,12 +10,12 @@ end
 
 describe PaperCup::Client do
   it '#merged_opts_for_request merges options properly' do
-    result = client.merged_opts_for_request(
+    result = client.send :merged_opts_for_request, {
       method:   :get,
       path:     '/users/casapick',
       params:   { test_param_2: :popote, test_param_3: :papota },
       headers:  { 'X-Test-Header-2': :popote, 'X-Test-Header-3': :papota }
-    )
+    }
 
     assert_equal result.fetch(:method), :get
     assert_equal result.fetch(:url), 'http://api.github.com/users/casapick'
