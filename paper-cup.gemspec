@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'paper-cup'
-  s.version     = '0.1.2'
+  s.version     = '0.2.0'
   s.date        = '2015-08-05'
   s.summary     = "Use of Open3 to make request"
   s.description = "Use curl with Open3 for making request"

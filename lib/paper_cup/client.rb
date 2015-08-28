@@ -18,15 +18,6 @@ module PaperCup
       options[:params] || {}
     end
 
-    def merged_opts_for_request(opts)
-      _method  = opts[:method] || :get
-      _url     = File.join(url, opts.fetch(:path).to_s)
-      _headers = headers.merge(opts[:headers] || {})
-      _params  = params.merge(opts[:params] || {})
-
-      { method: _method, url: _url, headers: _headers, params: _params }
-    end
-
     PaperCup::METHODS.each do |method|
       define_method(method) do |path, opts = {}|
         opts = merged_opts_for_request(
@@ -45,6 +36,17 @@ module PaperCup
       end
 
       return self.class.new(opts)
+    end
+
+    private
+
+    def merged_opts_for_request(opts)
+      _method  = opts[:method] || :get
+      _url     = File.join(url, opts.fetch(:path).to_s)
+      _headers = headers.merge(opts[:headers] || {})
+      _params  = params.merge(opts[:params] || {})
+
+      { method: _method, url: _url, headers: _headers, params: _params }
     end
   end
 end
